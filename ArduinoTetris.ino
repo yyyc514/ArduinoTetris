@@ -2,14 +2,15 @@
 // Original JavaScript implementation - Jake Gordon - https://github.com/jakesgordon/javascript-tetris
 // MIT licenced
 
+#include <arduino.h>
 #include <avr/pgmspace.h>
 #include <MicroView.h>
 #include <AdvButton.h>
 #include <ButtonManager.h>
 #include "Tetris.h"
-#include "Playtune.h"
+// #include "Playtune.h"
 
-Playtune pt;
+// Playtune pt;
 
 //-------------------------------------------------------------------------
 // game constants
@@ -139,8 +140,8 @@ void setup() {
 
  randomSeed(millis());
 
- pt.tune_initchan(audioPin1);
- pt.tune_initchan(audioPin2);
+ // pt.tune_initchan(audioPin1);
+ // pt.tune_initchan(audioPin2);
 
  reset();
 }
@@ -153,9 +154,9 @@ void loop() {
    draw();
 
    if (playing && (time%300 == 0)) {
-     if (!pt.tune_playing) {
-       pt.tune_playscore(tetrisScore);
-     }
+     // if (!pt.tune_playing) {
+       // pt.tune_playscore(tetrisScore);
+     // }
 
      drop();
 
@@ -195,7 +196,11 @@ void onRotateButton(AdvButton* but) {
 // GAME LOGIC
 //-------------------------------------------------------------------------
 
-void lose() { playing = false; lost = true; pt.tune_stopscore(); }
+void lose() { 
+  playing = false; 
+  lost = true; 
+  // pt.tune_stopscore(); 
+}
 
 void addScore(int n) { score = score + n; }
 void clearScore() { score = 0; }

@@ -11,8 +11,12 @@ struct Block {
   int y;
 };
 
+void onLeftButton(AdvButton* but);
+void onRightButton(AdvButton* but);
+void onRotateButton(AdvButton* but);
+
 // Tetris Theme A by Gori Fater. (CC BY-NC-SA 3.0)
-byte PROGMEM tetrisScore [] = {
+const byte PROGMEM tetrisScore [] = {
 0,4,0x90,71,0x91,76,0x92,40,1,5,0,14,0x82,0,232,0x80,0x81,0,0,0x90,68,
 0x91,71,0x92,40,0,14,0,216,0x80,0,14,0x81,0,0,0x90,69,0x91,72,0,14,0x82,
 0,219,0x80,0,4,0,9,0x81,0,0,0x90,71,0x91,74,0x92,40,0,14,0,100,0,120,
